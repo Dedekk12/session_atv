@@ -1,0 +1,8 @@
+O que deve se fazer
+
+realizar um contador a partir de session onde deve fazer um "crud" de números
+
+nele deve ter : 
+1 botão que aumenta essa contador e armazena seu dado na session;
+1 botão para inicializar sessão
+1 botão para reiniciar a sessão resultando em um reboot do contador;
