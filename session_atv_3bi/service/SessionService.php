@@ -4,11 +4,11 @@ class SessionService
 {
 
 
-    public function saveSession()
+    public function saveSession(Contador $contador)
     {
         $this->startSession();
 
-        $_SESSION[SESSION_CONT_OBJ] = new Contador();
+        $_SESSION[SESSION_CONT] = $contador;
     }
 
 
@@ -27,6 +27,31 @@ class SessionService
         session_destroy();
     }
 
+    public function raiseCounter()
+    {
+        $this->startSession();
+        
+        $_SESSION[SESSION_CONT]->adicionarContagem();
+    }
+
+
+
+    public function getObjCounter()
+    {
+        $this->startSession();
+        if($this->issetCounter())
+            return $_SESSION[SESSION_CONT];        
+        
+    }
+
+
+    private function issetCounter() : bool
+    {
+        $this->startSession();
+        if (isset($_SESSION[SESSION_CONT])) 
+            return true;
+        return false;
+    }
 
 
 }

@@ -1,18 +1,11 @@
 <?php
 require_once (__DIR__ . "/../../controller/SessionController.php");
-require_once(__DIR__ . "/../../model/Contador.php");
 require_once (__DIR__ . "/../../util/config.php");
 
 $sessionCont = new SessionController();
 
-$contador = new Contador();
 
+$sessionCont->aumentarContador();
 
-$sessionCont->salvarSessao($contador);
-
-var_dump($_SESSION);
 
 header("location:" . BASE_URL);
-
-
-?>

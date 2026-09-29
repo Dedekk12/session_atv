@@ -4,29 +4,34 @@ require_once (__DIR__ . "/util/config.php");
 
 $sessionCont = new SessionController();
 
+
+
 require_once(__DIR__ . "/view/include/header.php");
+
+
+
+
+
+$contador = $sessionCont->getObjContador();
+
 ?>
 
 
 <h1>Contador de valores em uma sessão </h1>
 
-<button class="btn"> Adicionar Contador</button>
+<a href="<?= BASE_URL ?>view/session/adicionarContador.php" class="btn">Aumentar a contagem</a>
 <a href="<?= BASE_URL ?>view/session/criarSessao.php" class="btn btn-primary">Inicializar Sessao</a>
-<button class="btn"> Finalizar Sessão</button>
+
+<a href="<?= BASE_URL ?>view/session/finalizarSessao.php" class="btn"> Finalizar Sessão</a >
 
 
-    <?php if (!empty($_SESSION[SESSION_CONT_OBJ])): ?>
+<h2>Valores : 
+    <?= ($contador) ? $contador->getContagem() : "Nenhum Valor encontrado ou sessão desativa!!" ?>
+</h2>
 
-        <h2>Valores salvos : <?= $_SESSION[SESSION_CONT_OBJ]->getContagem() ?></h2>
-
-    <?php endif; ?>
 
 
 <?php
-
-print_r($_SESSION);
-
-echo session_status();
 
 require_once(__DIR__ . "/view/include/footer.php");
 ?>

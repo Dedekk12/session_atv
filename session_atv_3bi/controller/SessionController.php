@@ -1,5 +1,6 @@
 <?php
 require_once (__DIR__ . "/../service/SessionService.php");
+require_once(__DIR__ . "/../model/Contador.php");
 
 class SessionController
 {
@@ -14,8 +15,26 @@ class SessionController
         $this->session_service->startSession();
     }
 
-    public function salvarSessao()
+    public function salvarSessao(Contador $contador)
     {
-        $this->session_service->saveSession();
+        $this->session_service->saveSession($contador);
     }
+
+    public function finalizarSessao()
+    {
+        $this->session_service->destroySession();
+    }
+
+    public function getObjContador()
+    {
+        return $this->session_service->getObjCounter();
+    }
+
+    public function aumentarContador()
+    {
+        $this->session_service->raiseCounter();
+    }
+
+
+
 }
