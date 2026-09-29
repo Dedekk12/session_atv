@@ -28,7 +28,10 @@ $contador = $sessionCont->getObjContador();
             </a>
         </div>
         <div class="col-2">
-            <a href="<?= BASE_URL ?>view/session/criarSessao.php" class="btn btn-outline-info">Inicializar Sessao</a>
+            <a href="<?= BASE_URL ?>view/session/criarSessao.php" 
+            class="btn btn-outline-info
+            <?= ($contador) ? "pe-none" : "pe-auto" ?>">
+            Inicializar Sessao</a>
 
         </div>
 

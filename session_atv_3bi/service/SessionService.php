@@ -13,11 +13,7 @@ class SessionService
 
 
 
-    public function startSession()
-    {
-        if (session_status() != PHP_SESSION_ACTIVE)
-            session_start();
-    }
+
 
     public function destroySession()
     {
@@ -45,12 +41,19 @@ class SessionService
     }
 
 
+
     private function issetCounter() : bool
     {
         $this->startSession();
         if (isset($_SESSION[SESSION_CONT])) 
             return true;
         return false;
+    }
+
+        private function startSession()
+    {
+        if (session_status() != PHP_SESSION_ACTIVE)
+            session_start();
     }
 
 

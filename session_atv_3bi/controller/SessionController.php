@@ -11,10 +11,6 @@ class SessionController
         $this->session_service = new SessionService();
     }
 
-    public function iniciarSessao(){
-        $this->session_service->startSession();
-    }
-
     public function salvarSessao(Contador $contador)
     {
         $this->session_service->saveSession($contador);
@@ -35,6 +31,8 @@ class SessionController
         $this->session_service->raiseCounter();
     }
 
+
+    
     
 
 
