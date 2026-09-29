@@ -1,6 +1,6 @@
 <?php
 require_once(__DIR__ . "/controller/SessionController.php");
-require_once (__DIR__ . "/util/config.php");
+require_once(__DIR__ . "/util/config.php");
 
 $sessionCont = new SessionController();
 
@@ -16,19 +16,33 @@ $contador = $sessionCont->getObjContador();
 
 ?>
 
+<div class="text-center">
+    <div class="row justify-content-center">
 
-<h1>Contador de valores em uma sessão </h1>
+        <h1>Contador de valores em uma sessão </h1>
+        <div class="col-2">
+            <a href="<?= BASE_URL ?>view/session/adicionarContador.php"
+                class="btn btn-outline-secondary 
+                 <?= ($contador) ? "pe-auto" : "pe-none" ?>">
+                Aumentar a contagem
+            </a>
+        </div>
+        <div class="col-2">
+            <a href="<?= BASE_URL ?>view/session/criarSessao.php" class="btn btn-outline-info">Inicializar Sessao</a>
 
-<a href="<?= BASE_URL ?>view/session/adicionarContador.php" class="btn">Aumentar a contagem</a>
-<a href="<?= BASE_URL ?>view/session/criarSessao.php" class="btn btn-primary">Inicializar Sessao</a>
+        </div>
 
-<a href="<?= BASE_URL ?>view/session/finalizarSessao.php" class="btn"> Finalizar Sessão</a >
+        <div class="col-2">
+            <a href="<?= BASE_URL ?>view/session/finalizarSessao.php" class="btn btn-outline-danger"> Finalizar Sessão</a>
 
+        </div>
 
-<h2>Valores : 
-    <?= ($contador) ? $contador->getContagem() : "Nenhum Valor encontrado ou sessão desativa!!" ?>
-</h2>
+        <h2>
+            <?= ($contador) ?  "Valores salvos na sessão : " . $contador->getContagem() : "Nenhum Valor encontrado ativo!!!" ?>
+        </h2>
+    </div>
 
+</div>
 
 
 <?php

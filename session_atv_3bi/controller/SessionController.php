@@ -35,6 +35,8 @@ class SessionController
         $this->session_service->raiseCounter();
     }
 
+    
+
 
 
 }
